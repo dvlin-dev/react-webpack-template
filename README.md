@@ -1,17 +1,4 @@
 # react-webpack-template
-<<<<<<< HEAD
-[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
-## ability
-- HMR
-- File fingerprint
-- autoprefixer 
-- Compress for HTML、CSS、JS 
-  - html-webpack-plugin
-  - uglifyjs-webpack-plugin
-  -  optimize-css-assets-wepack-plugin and cssnano
-- split base library
-  - SplitChunksPlugin  and  html-webpack-externals-plugin
-=======
 
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
@@ -26,7 +13,6 @@
   - optimize-css-assets-wepack-plugin and cssnano
 - split base library
   - SplitChunksPlugin and html-webpack-externals-plugin
->>>>>>> ef97c4f (fix: commitlint and prettier)
 - px to rem
   - px2rem-loader flexible
 - Source-map
