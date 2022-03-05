@@ -1,5 +1,5 @@
-const webpackMerge = require('webpack-merge')
-const baseConfig = require('./webpack.base')
+const webpackMerge = require('webpack-merge');
+const baseConfig = require('./webpack.base');
 
 const config = {
   stats: 'errors-only',
@@ -11,6 +11,6 @@ const config = {
     // gzip compression
     compress: true,
   },
-}
-const mergedConfig = webpackMerge.merge(baseConfig, config)
-module.exports = mergedConfig
+};
+const mergedConfig = webpackMerge.merge(baseConfig, config);
+module.exports = mergedConfig;

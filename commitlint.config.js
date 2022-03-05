@@ -13,7 +13,7 @@
 // style:    不影响代码含义的改动，例如去掉空格、改变缩进、增删分号
 // refactor: 代码重构时使用
 // revert:   执行git revert打印的message
-//chore：      不属于以上类型的其他类型
+// chore：      不属于以上类型的其他类型
 // test:     添加测试或者修改现有测试
 
 module.exports = {
