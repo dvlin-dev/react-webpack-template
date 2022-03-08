@@ -1,4 +1,4 @@
-# 1.0.0 (2022-03-05)
+# 1.0.0 (2022-03-08)
 
 ### Bug Fixes
 
@@ -9,4 +9,5 @@
 ### Features
 
 - add less ([be6ce73](https://github.com/bowlingQ/react-webpack-template/commit/be6ce73a88e287581aee4782e2638260a075ac2a))
+- better catalog ([749821e](https://github.com/bowlingQ/react-webpack-template/commit/749821e2a261da23a3b95fd5fee5486f01fab715))
 - webpack-dev and add eslint prettier husky commitlint ([a7221e1](https://github.com/bowlingQ/react-webpack-template/commit/a7221e1edb2a8aa70ea1c0126ab5c8a00159ddb5))
