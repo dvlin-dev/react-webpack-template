@@ -4,6 +4,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const glob = require('glob');
 const variable = require('./variable');
 
@@ -30,12 +31,14 @@ const getPlugins = () => {
   const purgeCSSPlugin = new PurgeCSSPlugin({
     paths: glob.sync(`${SRC_PATH}/**/*`, { nodir: true }),
   });
+  const friendlyErrorsWebpackPlugin = new FriendlyErrorsWebpackPlugin();
   return [
     cleanWebpackPlugin,
     miniCssExtractPlugin,
     cssMinimizerPlugin,
     purgeCSSPlugin,
     htmlWebpackPlugin,
+    friendlyErrorsWebpackPlugin,
   ];
 };
 module.exports = {

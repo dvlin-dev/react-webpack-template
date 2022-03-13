@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "rootDir": "./src",
+    "baseUrl": "./",
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -14,5 +15,7 @@
       "@/*": ["./src/*"],
       "@images/*": ["./src/assets/images/*"]
     }
-  }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"] // *** 不进行类型检查的文件 ***
 }

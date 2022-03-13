@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './index.less';
 import logo from '@images/logo.png';
-import webpack from './assets/images/webpack.png';
+import webpack from '@/assets/images/webpack.png';
 
 // eslint-disable-next-line func-names
 export default function () {
   const [text, useText] = useState('before');
   const loadimport = () => {
-    useText('d');
+    // eslint-disable-next-line import/extensions
+    import('./web.js').then(Text => {
+      console.log(Text);
+      useText('Text');
+    });
   };
   return (
     <div className="contain">

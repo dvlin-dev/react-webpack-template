@@ -6,12 +6,16 @@ const baseConfig = require('./webpack.base');
 const config = {
   mode: 'development',
   stats: 'errors-only',
+  output: {
+    publicPath: '/',
+  },
   devServer: {
     open: true,
     host: 'localhost',
     port: 9000,
     hot: true,
     compress: true,
+    historyApiFallback: true,
   },
   plugins: [new ReactRefreshWebpackPlugin()].filter(Boolean),
   watchOptions: {

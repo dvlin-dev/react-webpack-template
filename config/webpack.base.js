@@ -1,13 +1,30 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 const { getPlugins } = require('./utils/plugin');
 const resolveConfig = require('./utils/resolve');
+const variable = require('./utils/variable');
 
+const { IS_DEV, SRC_PATH, IS_PRO, DIST_PATH } = variable;
 module.exports = {
-  entry: './src/index.tsx',
+  entry: {
+    index: path.join(SRC_PATH, 'index.tsx'),
+  },
+  output: {
+    path: DIST_PATH,
+    filename: IS_DEV ? 'js/[name].bundle.js' : 'js/[name].[contenthash:8].bundle.js',
+    // publicPath: getCDNPath(),
+    // globalObject: 'this',
+    chunkFilename: IS_DEV ? 'js/[name].chunk.js' : 'js/[name].[contenthash:8].chunk.js',
+    assetModuleFilename: 'assets/[hash][ext][query]',
+    clean: true,
+  },
+  cache: { type: 'memory' },
   module: {
     rules: [
       {
-        test: /\.(tsx?|js)$/,
-        exclude: /node_modules/,
+        test: /\.(tsx?|js|jsx)$/,
+        include: [SRC_PATH],
+        exclude: [/node_modules/, /public/, /(.|_)min\.js$/],
         use: [
           'cache-loader',
           {
@@ -20,23 +37,23 @@ module.exports = {
         ],
       },
       {
-        test: /\.less$/,
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.less$/i,
+        include: [SRC_PATH],
+        exclude: /node_modules/, // 取消匹配node_modules里面的文件
         use: [
-          'style-loader',
+          IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
+              modules: false,
+              sourceMap: !IS_PRO,
             },
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [['postcss-preset-env']],
-              },
-            },
-          },
+          'postcss-loader',
           'less-loader',
         ],
       },

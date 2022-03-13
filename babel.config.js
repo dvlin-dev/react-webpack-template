@@ -10,6 +10,7 @@ module.exports = api => {
       '@babel/preset-react',
       {
         development: isDev,
+        runtime: 'automatic',
       },
     ],
     '@babel/preset-env',
