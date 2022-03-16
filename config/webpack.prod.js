@@ -2,20 +2,13 @@ const webpackMerge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin');
 const baseConfig = require('./webpack.base');
-const variable = require('./utils/wputils');
-
-const { DIST_PATH } = variable;
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const config = {
   mode: 'production',
   cache: { type: 'filesystem', buildDependencies: { config: [__filename] } }, // 使用文件缓存
   output: {
-    path: DIST_PATH,
-    // publicPath: getCDNPath,
-    filename: 'js/[name].[contenthash:8].bundle.js',
-    chunkFilename: 'js/[name].[contenthash:8].chunk.js',
-    assetModuleFilename: 'assets/[hash][ext][query]',
+    pathinfo: false, // 优化
   },
   optimization: {
     minimizer: [new TerserPlugin(), new HtmlMinimizerPlugin()],

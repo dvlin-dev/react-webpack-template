@@ -13,7 +13,7 @@ module.exports = {
     path: DIST_PATH,
     filename: IS_DEV ? 'js/[name].bundle.js' : 'js/[name].[contenthash:8].bundle.js',
     // publicPath: getCDNPath(),
-    // globalObject: 'this',
+    globalObject: 'this',
     chunkFilename: IS_DEV ? 'js/[name].chunk.js' : 'js/[name].[contenthash:8].chunk.js',
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,

@@ -105,3 +105,4 @@ dist
 
 .history
 dist
+/package-lock.json

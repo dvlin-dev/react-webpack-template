@@ -20,7 +20,7 @@ import user from './user';
 const routes = [
   {
     path: '/',
-    component: () => import('@/pages/home/index'),
+    component: () => import(/* webpackChunkName: "homepage" */ '@/pages/home'),
     meta: {
       title: '云信客服',
       noLogin: true,
@@ -87,15 +87,15 @@ const routes = [
       hideMenu: true,
     },
   },
-  // {
-  //   path: '*',
-  //   component: () => import(/* webpackChunkName: "errorPage4" */ '@/pages/errorPage/page404'),
-  //   meta: {
-  //     title: '404',
-  //     noLogin: true,
-  //     hideMenu: true,
-  //   },
-  // },
+  {
+    path: '*',
+    component: () => import(/* webpackChunkName: "errorPage4" */ '@/pages/errorPage/page404'),
+    meta: {
+      title: '404',
+      noLogin: true,
+      hideMenu: true,
+    },
+  },
   {
     url: 'https://github.com/bowlingQ/cloud-courier-customer-service',
     meta: {
