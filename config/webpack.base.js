@@ -13,8 +13,6 @@ module.exports = {
     path: DIST_PATH,
     filename: IS_DEV ? 'js/[name].bundle.js' : 'js/[name].[contenthash:8].bundle.js',
     // publicPath: getCDNPath(),
-    // TODO 为了使 UMD 构建在浏览器和 Node.js 上均可用 加上这个报错 webpack_template
-    // globalObject: 'this',
     chunkFilename: IS_DEV ? 'js/[name].chunk.js' : 'js/[name].[contenthash:8].chunk.js',
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,
