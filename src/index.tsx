@@ -1,5 +1,21 @@
-import React from 'react';
+import { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import Hello from './Hello';
+import { Provider } from 'react-redux';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { store } from './store';
+import { FullPageLoading } from './components/lib';
+import App from './App';
 
-ReactDOM.render(<Hello />, document.getElementById('root'));
+const queryClient = new QueryClient();
+ReactDOM.render(
+  // <React.StrictMode>
+  <Suspense fallback={<FullPageLoading />}>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </Provider>
+  </Suspense>,
+  // </React.StrictMode>,
+  document.getElementById('root'),
+);

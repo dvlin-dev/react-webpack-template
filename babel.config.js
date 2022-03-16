@@ -31,6 +31,7 @@ module.exports = api => {
         regenerator: true,
       },
     ],
+    ['import', { libraryName: 'antd', libraryDirectory: 'lib' }, 'antd'],
   ];
 
   if (isDev) {

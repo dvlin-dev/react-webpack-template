@@ -9,6 +9,7 @@ const { DIST_PATH } = variable;
 
 const config = {
   mode: 'production',
+  cache: { type: 'filesystem', buildDependencies: { config: [__filename] } }, // 使用文件缓存
   output: {
     path: DIST_PATH,
     // publicPath: getCDNPath,
@@ -16,7 +17,6 @@ const config = {
     chunkFilename: 'js/[name].[contenthash:8].chunk.js',
     assetModuleFilename: 'assets/[hash][ext][query]',
   },
-  cache: { type: 'filesystem', buildDependencies: { config: [__filename] } }, // 使用文件缓存
   optimization: {
     minimizer: [new TerserPlugin(), new HtmlMinimizerPlugin()],
     splitChunks: {

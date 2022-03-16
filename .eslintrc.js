@@ -35,5 +35,7 @@ module.exports = {
     'import/no-duplicates': [0],
     'no-plusplus': [0],
     'react/jsx-props-no-spreading': [0],
+    'no-param-reassign': [0],
+    'jsx-a11y/no-static-element-interactions': [0],
   },
 };
