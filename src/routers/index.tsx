@@ -18,15 +18,15 @@ import user from './user';
  * @param {boolean} hideMenu // 是否在侧边栏中隐藏该路由菜单
  */
 const routes = [
-  // {
-  //   path: '/',
-  //   component: () => import(/* webpackChunkName: "homepage" */ '@/pages/home'),
-  //   meta: {
-  //     title: '云信客服',
-  //     noLogin: true,
-  //     hideMenu: true,
-  //   },
-  // },
+  {
+    path: '/',
+    component: () => import(/* webpackChunkName: "homepage" */ '@/pages/home/index'),
+    meta: {
+      title: '云信客服',
+      noLogin: true,
+      hideMenu: true,
+    },
+  },
   {
     path: '/admin',
     redirect: '/admin/dashboard',
