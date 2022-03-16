@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom'; // 引入官方路由组件
+import { HashRouter } from 'react-router-dom'; // 引入官方路由组件
 import RouterWaiter from '@/routers/utils'; // 引入该插件
 import { routes } from '@/routers'; // 引入你的路由配置
 import onRouteBefore from '@/routers/utils/onRouteBefore'; // 引入你定义的路由拦截函数
@@ -7,9 +7,9 @@ import '@/assets/css/reset.less';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <RouterWaiter routes={routes} onRouteBefore={onRouteBefore} />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

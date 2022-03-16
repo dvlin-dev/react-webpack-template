@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*
  * @Description: Desc
  * @Author: Neo
@@ -7,7 +5,6 @@
  * @LastEditTime: 2022-02-17
  * @LastEditors: Neo
  */
->>>>>>> 42b61e9 (feat: router config)
 export default function Nest12() {
   return <div>nest12</div>;
 }

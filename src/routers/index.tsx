@@ -20,7 +20,8 @@ import user from './user';
 const routes = [
   {
     path: '/',
-    component: () => import(/* webpackChunkName: "homepage" */ '@/pages/home'),
+    // TODO 补全后缀index
+    component: () => import(/* webpackChunkName: "homepage" */ '@/pages/home/index'),
     meta: {
       title: '云信客服',
       noLogin: true,
