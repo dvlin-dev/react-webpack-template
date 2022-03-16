@@ -13,7 +13,7 @@ function Page404() {
     <div className="v-errorPage-page404">
       404，路由地址错误
       <div className="btnWrap">
-        <Button onClick={toPageHome}>回首页</Button>
+        <Button onClick={() => toPageHome}>回首页</Button>
       </div>
     </div>
   );

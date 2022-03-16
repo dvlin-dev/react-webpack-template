@@ -2,7 +2,7 @@
   "name": "react-webpack-template",
   "version": "1.0.0",
   "description": "react-webpack-template",
-  "main": "index.js",
+  "main": "src/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=prod webpack --config ./config/webpack.prod.js",
@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/bowlingQ/react-webpack-template/issues"
   },
-  "homepage": "https://github.com/bowlingQ/react-webpack-template#readme",
+  "homepage": "./",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
