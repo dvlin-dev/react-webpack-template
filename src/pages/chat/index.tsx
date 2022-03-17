@@ -1,135 +1,136 @@
-// import { Button, Input, Form } from 'antd'
-// import moment from 'moment'
-// import styled from 'styled-components'
-// import useRsocket from './useRsocket'
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import { Input } from 'antd';
+import { createFromIconfontCN } from '@ant-design/icons';
+import { Picker } from 'emoji-mart';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import moment from 'moment';
+import 'emoji-mart/css/emoji-mart.css';
+import './index.less';
+import _ from 'lodash';
+import { useState } from 'react';
 
-// const Chat = () => {
-//   const { latestMessage, sendMessage } = useRsocket()
-//   let InitList = latestMessage.map((item) => (
-//     <div key={item.id} style={{ maxWidth: '70%' }}>
-//       <div
-//         style={{
-//           display: 'inline-block',
-//           background: 'rgb(239,253,222)',
-//           margin: '10px',
-//           borderRadius: '10px',
-//           padding: '10px',
-//         }}
-//       >
-//         <div style={{ position: 'relative' }}>
-//           <div>{item.message}</div>
-//           <div style={{ color: 'rgb(109,193,124)' }}>{item.create_time}</div>
-//         </div>
-//       </div>
-//     </div>
-//   ))
+const { TextArea } = Input;
+const IconFont = createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_3255185_zmbjspjcm6g.js',
+});
+function Chat() {
+  const [msg, setMsg] = useState('');
+  const [showEmojiModal, setEmojiModal] = useState(false);
+  const [msgList] = useState([
+    {
+      id: 1,
+      me: true,
+      msg: 'hello world',
+      time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: 2,
+      me: true,
+      msg: 'hello world',
+      time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: 3,
+      me: true,
+      msg: 'hello world',
+      time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: 4,
+      me: true,
+      msg: 'hello world',
+      time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: 5,
+      me: true,
+      msg: 'hello world',
+      time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: 6,
+      me: false,
+      msg: 'hello world',
+      time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+    },
+  ]);
+  const InitList = msgList.map(item => (
+    <div key={item.id} style={{ maxWidth: '70%' }}>
+      <div
+        style={{
+          display: 'inline-block',
+          background: 'rgb(239,253,222)',
+          margin: '10px',
+          borderRadius: '10px',
+          padding: '10px',
+        }}
+      >
+        <div style={{ position: 'relative' }}>
+          <div>{item.msg}</div>
+          <div style={{ color: 'rgb(109,193,124)' }}>{item.time}</div>
+        </div>
+      </div>
+    </div>
+  ));
+  function searchEmoji(emojis: any) {
+    setEmojiModal(false);
+    setMsg(!_.isEmpty(msg) ? msg + emojis.native : emojis.native);
+  }
 
-//   console.log('last', latestMessage)
-//   console.log('循环')
-//   const send = ({ message }: { message: string }) => {
-//     const name = 'test'
-//     const logo = ''
-//     sendMessage({
-//       message,
-//       name,
-//       logo,
-//       create_time: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
-//     })
+  const usename = 'bowlingQ';
+  const imgUrl = 'https://avatars.githubusercontent.com/u/7843281?s=40&v=4';
+  return (
+    <div className="max-container">
+      <div className="toolbar">
+        <div className="toolbar-nav">
+          <div className="toolbar-back">
+            <IconFont type="icon-outline-arrow-left-1" className="icon-back" />
+            <div className="avatar">
+              <img src={imgUrl} alt="logo" />
+            </div>
+            {usename}
+          </div>
+          <div className="toolbar-menu">
+            <IconFont type="icon-vuesax-outline-menu" className="icon-menu" />
+          </div>
+        </div>
+      </div>
+      <div className="chat-container">
+        <div className="msg-container">{InitList}</div>
+        <div className="send-container">
+          <div className="send-textarea">
+            <TextArea
+              placeholder="请留言"
+              autoSize={{ minRows: 1, maxRows: 6 }}
+              bordered={false}
+              className="_textarea"
+              value={msg}
+              onChange={e => setMsg(e.target.value)}
+            />
+          </div>
+          <div className="func-container">
+            <IconFont type="icon-vuesax-outline-send" className="icon-send" />
+            <IconFont
+              type="icon-vuesax-outline-emoji-happy"
+              className="icon-emoji"
+              onClick={() => setEmojiModal(!showEmojiModal)}
+            />
+            <IconFont type="icon-outline-like-1" className="icon-zan" />
+            <div className="emoji_container">
+              {showEmojiModal && (
+                <Picker
+                  set="twitter"
+                  emoji=""
+                  showPreview={false}
+                  onClick={emoji => searchEmoji(emoji)}
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
-//   }
-//   return (
-//     <ChatBac>
-//       <ChatWindow>
-//         <ChatHeader>
-//           <div>auth</div>
-//         </ChatHeader>
-//         <ChatContain>
-//           <div>
-//             <div>{InitList}</div>
-//           </div>
-//         </ChatContain>
-//         <SendContain>
-//           <Form onFinish={send} style={{ width: '95%', margin: '0 auto' }}>
-//             <Form.Item name={'message'}>
-//               <Textarea name='message' placeholder='请输入内容'></Textarea>
-//             </Form.Item>
-//             <Button
-//               htmlType={'submit'}
-//               type={'primary'}
-//               style={{ position: 'absolute', bottom: '10px', right: '10px' }}
-//             >
-//               send
-//             </Button>
-//           </Form>
-//         </SendContain>
-//       </ChatWindow>
-//     </ChatBac>
-//   )
-// }
-// export const ChatBac = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   /* background-image: url('../../../public/backgroud.jpg'); */
-//   background-image: url(https://oss.sunxinao.cn/running-job/upload/416568d6e8369713c0919d775cb22a98);
-//   width: 100%;
-//   height: 100vh;
-// `
-// export const ChatWindow = styled.div`
-//   width: 66%;
-//   height: 75%;
-//   min-height: 450px;
-//   background: white;
-//   display: flex;
-//   flex-direction: column;
-//   border-radius: 6px;
-//   overflow: hidden;
-// `
-// export const ChatHeader = styled.div`
-//   position: relative;
-//   box-sizing: border-box;
-//   padding-left: 24px;
-//   padding-right: 24px;
-//   height: 80px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   box-shadow: 0 1px 40px -8px rgb(0 0 0 / 50%);
-// `
-// export const ChatContain = styled.div`
-//   overflow-y: auto;
-//   height: 80%;
-//   min-height: 220px;
-//   /* background-image: url('../../../public/backgroud.jpg'); */
-
-//   ::-webkit-scrollbar {
-//     height: 6px;
-//     width: 6px;
-//   }
-//   ::-webkit-scrollbar-thumb {
-//     background-color: rgba(0, 0, 0, 0.22);
-//     border-radius: 40px;
-//   }
-//   ::-webkit-scrollbar-track {
-//     background-color: rgba(0, 0, 0, 0.12);
-//   }
-// `
-// export const SendContain = styled.div`
-//   position: relative;
-//   min-height: 150px;
-//   display: flex;
-//   flex-direction: column;
-//   /* align-items: center; */
-//   justify-content: center;
-//   position: relative;
-//   border-top: 1px solid #d6dadf;
-// `
-// export const Textarea = styled.textarea`
-//   width: 100%;
-//   height: 100px;
-//   overflow: auto;
-//   resize: none;
-//   outline: none;
-//   border: none;
-// `
-// export default Chat
+export default Chat;
