@@ -5,8 +5,7 @@ import { message } from 'antd';
 interface myAxiosRequestConfig extends AxiosRequestConfig {
   headers?: any;
 }
-// axios.defaults.baseURL = 'https://api.job.sunxinao.cn'
-axios.defaults.baseURL = 'https://cccs.sunxinao.cn';
+axios.defaults.baseURL = 'https://xxx.cn';
 // 请求拦截
 let msg: Object = '';
 axios.interceptors.request.use(

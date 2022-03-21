@@ -37,10 +37,5 @@ export const login = (form: LoginForm) => (dispatch: AppDispatch) =>
   auth.login(form).then(user => dispatch(setUser(user)));
 export const register = (form: RegisterForm) => (dispatch: AppDispatch) =>
   auth.register(form).then(user => dispatch(setUser(user)));
-// export const logout = () => (dispatch: AppDispatch) =>
-//   auth.logout().then(() => dispatch(setUser(null)))
-// export const bootstrap = () => (dispatch: AppDispatch) =>
-//   bootstrapUser().then((user) => dispatch(setUser(user)))
-
 export const isLogin = (state: RootState) => !!state.auth.ticket;
 export const isGotUserInfo = (state: RootState) => !!state.auth.user.id;

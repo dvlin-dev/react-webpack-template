@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'https://cccs.sunxinao.cn',
+  baseURL: 'xxx.cn',
   // timeout: 5000, // request timeout
   withCredentials: true,
 });

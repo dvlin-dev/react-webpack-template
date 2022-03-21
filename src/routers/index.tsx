@@ -3,9 +3,6 @@ import PageLayout from '@/components/layout';
 import { HomeOutlined, GithubOutlined, BarsOutlined } from '@ant-design/icons'; // meta.icon设置菜单图标，仅设置一级菜单即可
 import { isGotUserInfo, isLogin, setUser } from '@/store/auth.slice';
 // 导入模块路由
-import report from './report';
-import message from './message';
-import knowledege from './knowledege';
 import user from './user';
 
 /**
@@ -23,15 +20,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "homepage" */ '@/pages/home/index'),
     meta: {
       title: '云信客服',
-      noLogin: true,
-      hideMenu: true,
-    },
-  },
-  {
-    path: '/chat',
-    component: () => import(/* webpackChunkName: "homepage" */ '@/pages/chat/index'),
-    meta: {
-      title: '聊天页-云信客服',
       noLogin: true,
       hideMenu: true,
     },
@@ -63,10 +51,7 @@ const routes = [
           icon: <BarsOutlined />,
         },
       },
-      ...message,
       ...user,
-      ...report,
-      ...knowledege,
     ],
   },
   {
@@ -106,7 +91,7 @@ const routes = [
     },
   },
   {
-    url: 'https://github.com/bowlingQ/cloud-courier-customer-service',
+    url: 'https://github.com/bowlingQ/react-webpack-template',
     meta: {
       title: 'GitHub',
       noLogin: true,
