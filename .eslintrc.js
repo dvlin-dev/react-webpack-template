@@ -1,7 +1,9 @@
 module.exports = {
   root: true,
   env: {
-    node: true,
+    "commonjs": true,
+    "node": true,
+    "es6": true,
   },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
@@ -19,5 +21,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': 0,
     'no-mixed-spaces-and-tabs': 0,
     'no-empty': 0,
+    "no-console": 0,
+    "strict": ["error", "global"],
+    "curly": "warn"
   },
 };
