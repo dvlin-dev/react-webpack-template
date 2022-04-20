@@ -39,7 +39,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.less$/i,
+        test: /\.scss$/i,
         include: [SRC_PATH],
         exclude: /node_modules/, // 取消匹配node_modules里面的文件
         use: [
@@ -47,12 +47,16 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: false,
+              modules: {
+                mode: 'local',
+                auto: /\.module\.\w+$/i,
+                localIdentName: '[local]-[contenthash:5]',
+              },
               sourceMap: !IS_PRO,
             },
           },
           'postcss-loader',
-          'less-loader',
+          'sass-loader',
         ],
       },
       {
