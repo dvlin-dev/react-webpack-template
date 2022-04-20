@@ -3,9 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-// eslint-disable-next-line import/no-extraneous-dependencies
 const DotenvPlugin = require('dotenv-webpack');
 const glob = require('glob');
 const variable = require('./variable');
@@ -37,6 +36,7 @@ const getPlugins = () => {
   const dotenvPlugin = new DotenvPlugin({
     path: ENV_CONFIG_PATH,
   });
+  const webpackBar = new WebpackBar();
   return [
     cleanWebpackPlugin,
     miniCssExtractPlugin,
@@ -45,6 +45,7 @@ const getPlugins = () => {
     htmlWebpackPlugin,
     friendlyErrorsWebpackPlugin,
     dotenvPlugin,
+    webpackBar,
   ];
 };
 module.exports = {

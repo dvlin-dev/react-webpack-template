@@ -3,7 +3,7 @@ const webpackMerge = require('webpack-merge');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const baseConfig = require('./webpack.base');
 
-const config = {
+const devConfig = {
   mode: 'development',
   stats: 'errors-only',
   output: {
@@ -16,14 +16,18 @@ const config = {
     hot: true,
     compress: true,
     historyApiFallback: true,
+    devMiddleware: { writeToDisk: true },
   },
   plugins: [new ReactRefreshWebpackPlugin()].filter(Boolean),
+  optimization: {
+    runtimeChunk: 'single',
+  },
   watchOptions: {
     aggregateTimeout: 500,
     poll: 1000,
     ignored: /node_modules/,
   },
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'source-map',
 };
-const mergedConfig = webpackMerge.merge(baseConfig, config);
+const mergedConfig = webpackMerge.merge(baseConfig, devConfig);
 module.exports = mergedConfig;
