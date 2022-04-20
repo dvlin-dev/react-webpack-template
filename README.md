@@ -11,8 +11,6 @@
   - optimize-css-assets-wepack-plugin and cssnano
 - split base library
   - SplitChunksPlugin and html-webpack-externals-plugin
-- px to rem
-  - px2rem-loader flexible
 - Source-map
 - Tree-shaking
 - Eslint
@@ -29,6 +27,5 @@
 - [ ] SSR
 - [ ] PWA
 
-## BUG
-
-- [ ] -D -S
+## D
+- [ ] px to rem
