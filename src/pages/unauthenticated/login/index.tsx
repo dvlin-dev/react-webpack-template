@@ -4,11 +4,10 @@ import { useMutation } from 'react-query';
 import { LoginForm } from '@/types/authForm';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '@/api/user';
-import './index.less';
+import styles from '../index.module.scss';
 
 const { TabPane } = Tabs;
 
-// eslint-disable-next-line react/function-component-definition
 const Login = () => {
   const navigate = useNavigate();
   const { mutate, isLoading } = useMutation((values: LoginForm) => login(values), {
@@ -21,11 +20,8 @@ const Login = () => {
       console.log(`error`);
     },
     onSuccess: () => {
-      console.log('login');
       navigate('admin/welcome');
-      //
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     onSettled: (_data, error, variables, context) => {
       // 错误或成功……这并不重要
     },
@@ -37,10 +33,10 @@ const Login = () => {
 
   // TODO 短信登录和密码登录分为两个模块
   return (
-    <div className="Bacground">
-      <div className="Card">
+    <div className={styles.Bacground}>
+      <div className={styles.Card}>
         <header style={{ textAlign: 'center' }}>
-          <h2>云信客服</h2>
+          <h2>XXXX</h2>
         </header>
         <div>
           <Tabs centered defaultActiveKey="account">
@@ -83,7 +79,7 @@ const Login = () => {
                   />
                 </Form.Item>
                 <Form.Item name="password" rules={[{ required: true, message: '请输入验证码' }]}>
-                  <div className="SmsContain">
+                  <div className={styles.SmsContain}>
                     <Input prefix={<SendOutlined />} size="large" placeholder="验证码" />
                     <Button size="large" style={{ marginLeft: '10px' }}>
                       发送验证码
@@ -99,7 +95,7 @@ const Login = () => {
             </TabPane>
           </Tabs>
         </div>
-        <div className="TipsLine">
+        <div className={styles.TipsLine}>
           <Button type="link">忘记密码</Button>
           <Button type="link">
             <Link to="/register">立即注册</Link>

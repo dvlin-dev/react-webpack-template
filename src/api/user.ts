@@ -1,6 +1,3 @@
-/**
- * 后端采用CSRF，登录状态前端不用管理
- */
 import { LoginForm, RegisterForm } from '@/types/authForm';
 import http from '../utils/http';
 

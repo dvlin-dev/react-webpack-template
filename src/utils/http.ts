@@ -1,25 +1,23 @@
 import axios from 'axios';
-
+import { message } from 'antd';
 const http = axios.create({
-  baseURL: 'xxx.cn',
+  baseURL: 'https://xxx.cn',
   // timeout: 5000, // request timeout
   withCredentials: true,
 });
 
 http.interceptors.request.use(
   config => {
-    // eslint-disable-next-line no-param-reassign
-    config.withCredentials = true;
     return config;
   },
   error => Promise.reject(error),
 );
 
-// 添加响应拦截器
 http.interceptors.response.use(
-  response =>
-    // console.log(response.headers['set-cookie'])
-    response,
-  async error => Promise.reject(error),
+  response => response,
+  err => {
+    const { response } = err;
+    message.error(response.data.message);
+  },
 );
 export default http;

@@ -5,7 +5,6 @@ export interface RegisterForm {
   password: string;
   code: any;
 }
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export interface LoginForm {
   password: string;
   login: string | number;

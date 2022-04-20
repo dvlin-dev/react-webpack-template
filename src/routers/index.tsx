@@ -118,27 +118,17 @@ const onRouteBefore = ({ meta }: any) => {
     // 路由是否需要登录
     if (isLogin) {
       // 用户是否已登录
-      // const { accessId } = meta;
-      // const message = `${pathname},${meta.title || ''}`;
-      // const path403 = `/403?message=${encodeURIComponent(message)}`;
-
       if (!isGotUserInfo) {
         // 是否已获取到用户（权限）信息
         return new Promise(() => {
-          getInfo().then((res: { data: {} }) => {
+          getInfo().then((res: { data }) => {
             const data = res.data || {};
             setUser(data);
-
             // TODO 权限判断
-            // if (!getIsCanAccess(accessId)) {
-            //   resolve(path403);
-            // }
           });
         });
       }
-      // if (!getIsCanAccess(accessId)) {
-      //   return path403;
-      // }
+      // TODO 403
     } else {
       return `/login?redirectUrl=${encodeURIComponent(window.location.href)}`;
     }

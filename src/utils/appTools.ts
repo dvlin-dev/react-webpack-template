@@ -32,7 +32,4 @@ function getRouteMetaMap() {
   return getMap(routes);
 }
 
-export {
-  // eslint-disable-next-line import/prefer-default-export
-  getRouteMetaMap,
-};
+export { getRouteMetaMap };

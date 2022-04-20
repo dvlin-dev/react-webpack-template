@@ -4,7 +4,7 @@ import { Button, Form, Input, message } from 'antd';
 import { useMutation } from 'react-query';
 import { login as loginApi, register } from '@/api/user';
 import { useNavigate } from 'react-router-dom';
-import '../login/index.less';
+import styles from '../login/index.module.scss';
 
 function RegisterScreen() {
   const navigate = useNavigate();
@@ -19,7 +19,6 @@ function RegisterScreen() {
     },
     onSuccess: (data, variables, context: any) => {
       message.success('注册成功');
-      // console.log(context)
       console.log(data);
       const { phone, email, password } = context;
       const login = phone || email;
@@ -30,16 +29,13 @@ function RegisterScreen() {
         .catch(err => {
           message.error(err);
         });
-      // login()
     },
     onSettled: () => {
       // 错误或成功……这并不重要
     },
   });
 
-  // HTMLFormElement extends Element
   const handleSubmit = async ({ ...values }: any) => {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     const { phone_email, name, password, code } = values;
     const phoneReg = /^((\+|00)86)?1\d{10}$/;
     const emailReg =
@@ -57,8 +53,8 @@ function RegisterScreen() {
   };
 
   return (
-    <div className="Bacground">
-      <div className="Card">
+    <div className={styles.Bacground}>
+      <div className={styles.Card}>
         <header style={{ textAlign: 'center' }}>
           <h2>注册</h2>
         </header>
@@ -91,7 +87,7 @@ function RegisterScreen() {
             />
           </Form.Item>
           <Form.Item name="code" rules={[{ required: true, message: '请输入验证码' }]}>
-            <div className="SmsContain">
+            <div className={styles.SmsContain}>
               <Input
                 prefix={<SendOutlined />}
                 size="large"
@@ -104,7 +100,12 @@ function RegisterScreen() {
               </Button>
             </div>
           </Form.Item>
-          <Button className="LongButton" loading={isLoading} htmlType="submit" type="primary">
+          <Button
+            className={styles.LongButton}
+            loading={isLoading}
+            htmlType="submit"
+            type="primary"
+          >
             注册
           </Button>
         </Form>
