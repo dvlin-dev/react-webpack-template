@@ -25,7 +25,6 @@ module.exports = {
         include: [SRC_PATH],
         exclude: [/node_modules/, /public/, /(.|_)min\.js$/],
         use: [
-          'cache-loader',
           {
             loader: 'thread-loader',
             options: {
