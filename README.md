@@ -1,5 +1,9 @@
 # react-webpack-template
 
+# Author reminder
+
+If you want to use this template, it is a finished product except for business components,business components just a demo
+
 ## ability
 
 - HMR
@@ -17,15 +21,17 @@
   - eslint-config-airbnb
 - Parallel compression
   - terser-webpack-plugin
-- 多进程/多实例构建
+- multi process
   - thread-loader
-- 缓存
-- 动态 Polyfill
+- cache
+- dynamic Polyfill
 
 ## TODO
 
 - [ ] SSR
 - [ ] PWA
 
-## D
+## Undetermined
+
 - [ ] px to rem
+- [ ] DLL
