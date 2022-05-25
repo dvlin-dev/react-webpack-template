@@ -41,7 +41,7 @@ module.exports = {
       {
         test: /\.scss$/i,
         include: [SRC_PATH],
-        exclude: /node_modules/, // 取消匹配node_modules里面的文件
+        exclude: /node_modules/,
         use: [
           IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
@@ -49,7 +49,6 @@ module.exports = {
             options: {
               modules: {
                 mode: 'local',
-                auto: /\.module\.\w+$/i,
                 localIdentName: '[local]-[contenthash:5]',
               },
               sourceMap: !IS_PRO,

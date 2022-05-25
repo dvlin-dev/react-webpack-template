@@ -30,15 +30,8 @@
   },
   "homepage": "./",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "@reduxjs/toolkit": "^1.8.1",
-    "antd": "^4.18.7",
-    "axios": "^0.26.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-query": "^3.34.16",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "6.0.2"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
