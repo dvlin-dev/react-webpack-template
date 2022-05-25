@@ -32,7 +32,6 @@ const getPlugins = () => {
   const purgeCSSPlugin = new PurgeCSSPlugin({
     paths: glob.sync(`${SRC_PATH}/**/*`, { nodir: true }),
   });
-  const friendlyErrorsWebpackPlugin = new FriendlyErrorsWebpackPlugin();
   const dotenvPlugin = new DotenvPlugin({
     path: ENV_CONFIG_PATH,
   });
@@ -43,7 +42,6 @@ const getPlugins = () => {
     cssMinimizerPlugin,
     purgeCSSPlugin,
     htmlWebpackPlugin,
-    friendlyErrorsWebpackPlugin,
     dotenvPlugin,
     webpackBar,
   ];
